@@ -1,11 +1,3 @@
-/*
- * grunt-newman
- * https://github.com/prakhar1989/grunt-newman
- *
- * Copyright (c) 2014 Prakhar Srivastav
- * Licensed under the Apache license.
- */
-
 'use strict';
 
 module.exports = function (grunt) {
@@ -26,27 +18,13 @@ module.exports = function (grunt) {
       }
     },
 
-    // Before generating any new files, remove any previously-created files.
-    clean: {
-      tests: ['tmp']
-    },
-
     // Configuration to be run (and then tested).
     newman: {
       default_options: {
         options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+			iterationCount: 2,
+			stopOnError: true,
+			url: "https://www.getpostman.com/collections/6f4387fee8d33e05fb69"
         }
       }
     },
@@ -63,7 +41,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'newman', 'nodeunit']);
+  grunt.registerTask('test', ['newman', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
