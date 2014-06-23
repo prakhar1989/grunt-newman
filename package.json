@@ -23,7 +23,9 @@
   ],
   "dependencies": {
 	  "newman": "*",
-	  "unirest": "*"
+	  "unirest": "*",
+	  "lodash": "*",
+	  "json5": "*"
   },
   "devDependencies": {
     "grunt-contrib-clean": "~0.5.0",
